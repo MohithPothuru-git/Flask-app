@@ -1,8 +1,20 @@
-/* Custom styles for Elegant Fashion */
+/* Custom styles for Elegant Fashion - Light Pink & Brown Palette */
+
+/* Color Variables */
+:root {
+    --primary-pink: #f8d7da;
+    --secondary-pink: #f5c2c7;
+    --accent-pink: #ea868f;
+    --light-brown: #d4a574;
+    --medium-brown: #b8956a;
+    --dark-brown: #8b6f47;
+    --cream: #faf8f5;
+    --soft-white: #ffffff;
+}
 
 /* Hero section */
 .hero-section.bg-gradient {
-    background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 50%, #1a1a1a 100%);
+    background: linear-gradient(135deg, var(--primary-pink) 0%, var(--light-brown) 50%, var(--secondary-pink) 100%);
     position: relative;
 }
 
@@ -12,7 +24,7 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background: linear-gradient(45deg, rgba(13, 110, 253, 0.1), rgba(220, 53, 69, 0.1));
+    background: linear-gradient(45deg, rgba(212, 165, 116, 0.1), rgba(248, 215, 218, 0.1));
     z-index: 1;
 }
 
@@ -26,7 +38,7 @@
 }
 
 .text-gradient {
-    background: linear-gradient(45deg, #0d6efd, #dc3545);
+    background: linear-gradient(45deg, var(--accent-pink), var(--dark-brown));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -34,24 +46,50 @@
 
 .hero-badge .badge {
     animation: pulse 2s infinite;
+    background-color: var(--dark-brown) !important;
+    color: var(--soft-white) !important;
 }
 
 .hero-title {
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+    text-shadow: 2px 2px 4px rgba(139, 111, 71, 0.3);
+    color: var(--dark-brown) !important;
 }
 
 .hero-subtitle {
-    text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+    text-shadow: 1px 1px 2px rgba(139, 111, 71, 0.3);
+    color: var(--dark-brown) !important;
 }
 
 .hero-btn {
     transition: all 0.3s ease;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    box-shadow: 0 4px 15px rgba(139, 111, 71, 0.2);
 }
 
 .hero-btn:hover {
     transform: translateY(-2px);
-    box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+    box-shadow: 0 8px 25px rgba(139, 111, 71, 0.3);
+}
+
+.btn-primary {
+    background-color: var(--dark-brown) !important;
+    border-color: var(--dark-brown) !important;
+    color: var(--soft-white) !important;
+}
+
+.btn-primary:hover {
+    background-color: var(--medium-brown) !important;
+    border-color: var(--medium-brown) !important;
+}
+
+.btn-outline-light {
+    border-color: var(--dark-brown) !important;
+    color: var(--dark-brown) !important;
+}
+
+.btn-outline-light:hover {
+    background-color: var(--dark-brown) !important;
+    border-color: var(--dark-brown) !important;
+    color: var(--soft-white) !important;
 }
 
 .hero-image-wrapper {
@@ -63,8 +101,9 @@
     height: 100%;
     object-fit: cover;
     border-radius: 20px;
-    box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+    box-shadow: 0 20px 40px rgba(139, 111, 71, 0.3);
     transition: transform 0.3s ease;
+    border: 3px solid var(--cream);
 }
 
 .hero-main-img:hover {
@@ -93,11 +132,14 @@
 .product-card {
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     overflow: hidden;
+    background: var(--cream) !important;
+    border: 2px solid var(--primary-pink) !important;
 }
 
 .product-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 1rem 3rem rgba(0,0,0,0.175) !important;
+    box-shadow: 0 1rem 3rem rgba(139, 111, 71, 0.175) !important;
+    border-color: var(--accent-pink) !important;
 }
 
 .product-image-container {
@@ -137,11 +179,14 @@
 /* Category cards */
 .category-card {
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    background: var(--cream) !important;
+    border: 2px solid var(--primary-pink) !important;
 }
 
 .category-card:hover {
     transform: translateY(-3px);
-    box-shadow: 0 0.5rem 2rem rgba(0,0,0,0.15) !important;
+    box-shadow: 0 0.5rem 2rem rgba(139, 111, 71, 0.15) !important;
+    border-color: var(--accent-pink) !important;
 }
 
 .category-icon {
@@ -150,6 +195,11 @@
 
 .category-card:hover .category-icon i {
     transform: scale(1.1);
+    color: var(--accent-pink) !important;
+}
+
+.category-icon i {
+    color: var(--dark-brown) !important;
 }
 
 /* Modern Category Cards */
@@ -157,11 +207,13 @@
     height: 400px;
     transition: all 0.3s ease;
     cursor: pointer;
+    border: 3px solid var(--primary-pink);
 }
 
 .category-card-modern:hover {
     transform: translateY(-10px) scale(1.02);
-    box-shadow: 0 25px 50px rgba(0,0,0,0.3) !important;
+    box-shadow: 0 25px 50px rgba(139, 111, 71, 0.3) !important;
+    border-color: var(--accent-pink);
 }
 
 .category-bg {
@@ -185,7 +237,7 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background: linear-gradient(135deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.4) 100%);
+    background: linear-gradient(135deg, rgba(139, 111, 71, 0.6) 0%, rgba(248, 215, 218, 0.4) 100%);
     z-index: 1;
 }
 
@@ -210,18 +262,41 @@
 
 /* Section badges */
 .section-badge .badge {
-    border: 2px solid var(--bs-primary);
+    border: 2px solid var(--dark-brown);
     background: transparent;
-    color: var(--bs-primary);
+    color: var(--dark-brown);
     font-weight: 500;
 }
 
 .section-title {
     position: relative;
+    color: var(--dark-brown);
+}
+
+.section-title .text-primary {
+    color: var(--accent-pink) !important;
 }
 
 .featured-section {
-    background: linear-gradient(135deg, rgba(13, 110, 253, 0.05) 0%, rgba(220, 53, 69, 0.05) 100%);
+    background: linear-gradient(135deg, rgba(212, 165, 116, 0.05) 0%, rgba(248, 215, 218, 0.05) 100%);
+}
+
+/* Text color overrides */
+.text-primary {
+    color: var(--dark-brown) !important;
+}
+
+.text-muted {
+    color: var(--medium-brown) !important;
+}
+
+/* Hero stats */
+.hero-stats h4 {
+    color: var(--dark-brown) !important;
+}
+
+.hero-stats small {
+    color: var(--dark-brown) !important;
 }
 
 /* Thumbnail gallery */
@@ -247,13 +322,17 @@
 
 /* Testimonial cards */
 .testimonial-card {
-    background: var(--bs-light);
+    background: var(--cream);
     border-radius: 1rem;
     transition: transform 0.3s ease;
+    border: 2px solid var(--primary-pink);
+    box-shadow: 0 4px 15px rgba(139, 111, 71, 0.1);
 }
 
 .testimonial-card:hover {
     transform: translateY(-2px);
+    border-color: var(--accent-pink);
+    box-shadow: 0 8px 25px rgba(139, 111, 71, 0.2);
 }
 
 /* Value cards */
@@ -374,6 +453,48 @@ footer a:hover {
 
 .btn:hover {
     transform: translateY(-1px);
+}
+
+.btn-outline-primary {
+    border-color: var(--dark-brown) !important;
+    color: var(--dark-brown) !important;
+}
+
+.btn-outline-primary:hover {
+    background-color: var(--dark-brown) !important;
+    border-color: var(--dark-brown) !important;
+    color: var(--soft-white) !important;
+}
+
+.btn-light {
+    background-color: var(--cream) !important;
+    border-color: var(--cream) !important;
+    color: var(--dark-brown) !important;
+}
+
+.btn-light:hover {
+    background-color: var(--primary-pink) !important;
+    border-color: var(--primary-pink) !important;
+}
+
+/* Additional color overrides */
+.card {
+    background-color: var(--cream) !important;
+    border: 2px solid var(--primary-pink) !important;
+}
+
+.card:hover {
+    border-color: var(--accent-pink) !important;
+}
+
+/* Typography improvements */
+h1, h2, h3, h4, h5, h6 {
+    color: var(--dark-brown) !important;
+}
+
+/* Background for body */
+body {
+    background-color: var(--soft-white) !important;
 }
 
 /* Custom scrollbar */
