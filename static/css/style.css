@@ -1,0 +1,395 @@
+/* Custom styles for Elegant Fashion */
+
+/* Hero section */
+.hero-section.bg-gradient {
+    background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 50%, #1a1a1a 100%);
+    position: relative;
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(45deg, rgba(13, 110, 253, 0.1), rgba(220, 53, 69, 0.1));
+    z-index: 1;
+}
+
+.hero-section .container {
+    position: relative;
+    z-index: 2;
+}
+
+.min-vh-80 {
+    min-height: 80vh;
+}
+
+.text-gradient {
+    background: linear-gradient(45deg, #0d6efd, #dc3545);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.hero-badge .badge {
+    animation: pulse 2s infinite;
+}
+
+.hero-title {
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+}
+
+.hero-subtitle {
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+}
+
+.hero-btn {
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+.hero-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+}
+
+.hero-image-wrapper {
+    height: 500px;
+}
+
+.hero-main-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 20px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+    transition: transform 0.3s ease;
+}
+
+.hero-main-img:hover {
+    transform: scale(1.02);
+}
+
+.hero-floating-card {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    animation: float 3s ease-in-out infinite;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+}
+
+/* Product cards */
+.product-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    overflow: hidden;
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 1rem 3rem rgba(0,0,0,0.175) !important;
+}
+
+.product-image-container {
+    height: 250px;
+    position: relative;
+}
+
+.product-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.product-card:hover .product-image {
+    transform: scale(1.1);
+}
+
+.product-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0,0,0,0.7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.product-card:hover .product-overlay {
+    opacity: 1;
+}
+
+/* Category cards */
+.category-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.category-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 0.5rem 2rem rgba(0,0,0,0.15) !important;
+}
+
+.category-icon {
+    transition: transform 0.3s ease;
+}
+
+.category-card:hover .category-icon i {
+    transform: scale(1.1);
+}
+
+/* Modern Category Cards */
+.category-card-modern {
+    height: 400px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.category-card-modern:hover {
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 0 25px 50px rgba(0,0,0,0.3) !important;
+}
+
+.category-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-size: cover;
+    background-position: center;
+    transition: transform 0.3s ease;
+}
+
+.category-card-modern:hover .category-bg {
+    transform: scale(1.1);
+}
+
+.category-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.4) 100%);
+    z-index: 1;
+}
+
+.category-content {
+    position: relative;
+    z-index: 2;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.category-icon-modern i {
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+    transition: all 0.3s ease;
+}
+
+.category-card-modern:hover .category-icon-modern i {
+    transform: scale(1.2) rotate(5deg);
+}
+
+/* Section badges */
+.section-badge .badge {
+    border: 2px solid var(--bs-primary);
+    background: transparent;
+    color: var(--bs-primary);
+    font-weight: 500;
+}
+
+.section-title {
+    position: relative;
+}
+
+.featured-section {
+    background: linear-gradient(135deg, rgba(13, 110, 253, 0.05) 0%, rgba(220, 53, 69, 0.05) 100%);
+}
+
+/* Thumbnail gallery */
+.thumbnail-img {
+    opacity: 0.7;
+    transition: opacity 0.3s ease, border 0.3s ease;
+}
+
+.thumbnail-img:hover,
+.thumbnail-img.active {
+    opacity: 1;
+    border: 2px solid var(--bs-primary) !important;
+}
+
+/* Team cards */
+.team-card img {
+    transition: transform 0.3s ease;
+}
+
+.team-card:hover img {
+    transform: scale(1.05);
+}
+
+/* Testimonial cards */
+.testimonial-card {
+    background: var(--bs-light);
+    border-radius: 1rem;
+    transition: transform 0.3s ease;
+}
+
+.testimonial-card:hover {
+    transform: translateY(-2px);
+}
+
+/* Value cards */
+.value-card {
+    transition: transform 0.3s ease;
+}
+
+.value-card:hover {
+    transform: translateY(-3px);
+}
+
+.value-icon i {
+    transition: transform 0.3s ease;
+}
+
+.value-card:hover .value-icon i {
+    transform: scale(1.1);
+}
+
+/* Award items */
+.award-item i {
+    transition: transform 0.3s ease;
+}
+
+.award-item:hover i {
+    transform: scale(1.1) rotate(10deg);
+}
+
+/* Form enhancements */
+.form-control:focus,
+.form-select:focus {
+    border-color: var(--bs-primary);
+    box-shadow: 0 0 0 0.2rem rgba(var(--bs-primary-rgb), 0.25);
+}
+
+/* Contact info cards */
+.contact-info .card {
+    transition: transform 0.3s ease;
+}
+
+.contact-info .card:hover {
+    transform: translateY(-2px);
+}
+
+/* Navigation enhancements */
+.navbar-brand {
+    font-size: 1.5rem;
+}
+
+.navbar-nav .nav-link {
+    transition: color 0.3s ease;
+    position: relative;
+}
+
+.navbar-nav .nav-link:hover {
+    color: var(--bs-primary) !important;
+}
+
+/* Footer enhancements */
+footer a {
+    transition: color 0.3s ease;
+}
+
+footer a:hover {
+    color: var(--bs-primary) !important;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .hero-section .display-4 {
+        font-size: 2.5rem;
+    }
+    
+    .product-image-container {
+        height: 200px;
+    }
+    
+    .hero-content {
+        text-align: center;
+        margin-bottom: 2rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .hero-section .display-4 {
+        font-size: 2rem;
+    }
+    
+    .display-5 {
+        font-size: 2rem;
+    }
+    
+    .product-image-container {
+        height: 180px;
+    }
+}
+
+/* Loading animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.fade-in {
+    animation: fadeIn 0.6s ease-out;
+}
+
+/* Button enhancements */
+.btn {
+    transition: all 0.3s ease;
+}
+
+.btn:hover {
+    transform: translateY(-1px);
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--bs-light);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--bs-secondary);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--bs-primary);
+}

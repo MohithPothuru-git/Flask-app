@@ -1,0 +1,285 @@
+{% extends "base.html" %}
+
+{% block title %}{{ product.name }} - Elegant Fashion{% endblock %}
+
+{% block content %}
+<!-- Product Detail Section -->
+<section class="py-5">
+    <div class="container">
+        <!-- Breadcrumb -->
+        <nav aria-label="breadcrumb" class="mb-4">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="{{ url_for('index') }}">Home</a></li>
+                <li class="breadcrumb-item"><a href="{{ url_for('products') }}">Products</a></li>
+                <li class="breadcrumb-item"><a href="{{ url_for('products', category=product.category) }}">{{ product.category|title }}</a></li>
+                <li class="breadcrumb-item active" aria-current="page">{{ product.name }}</li>
+            </ol>
+        </nav>
+        
+        <div class="row g-5">
+            <!-- Product Images -->
+            <div class="col-lg-6">
+                <div class="product-gallery">
+                    <!-- Main Image -->
+                    <div class="main-image mb-3">
+                        <img src="{{ product.image }}" 
+                             alt="{{ product.name }}" 
+                             class="img-fluid rounded-3 shadow-sm w-100"
+                             id="mainProductImage"
+                             data-bs-toggle="modal" 
+                             data-bs-target="#imageModal"
+                             style="cursor: zoom-in; height: 500px; object-fit: cover;">
+                    </div>
+                    
+                    <!-- Thumbnail Gallery -->
+                    {% if product.gallery|length > 1 %}
+                    <div class="thumbnail-gallery">
+                        <div class="row g-2">
+                            {% for image in product.gallery %}
+                            <div class="col-3">
+                                <img src="{{ image }}" 
+                                     alt="{{ product.name }}" 
+                                     class="img-fluid rounded thumbnail-img 
+                                            {% if loop.first %}active{% endif %}"
+                                     onclick="changeMainImage('{{ image }}')"
+                                     style="cursor: pointer; height: 80px; object-fit: cover;">
+                            </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                    {% endif %}
+                </div>
+            </div>
+            
+            <!-- Product Info -->
+            <div class="col-lg-6">
+                <div class="product-info">
+                    <!-- Category Badge -->
+                    <div class="mb-3">
+                        <span class="badge bg-secondary fs-6">{{ product.category|title }}</span>
+                        {% if product.featured %}
+                        <span class="badge bg-primary fs-6 ms-2">Featured</span>
+                        {% endif %}
+                    </div>
+                    
+                    <!-- Product Name -->
+                    <h1 class="display-5 fw-bold mb-3">{{ product.name }}</h1>
+                    
+                    <!-- Price -->
+                    <div class="price mb-4">
+                        <span class="display-6 text-primary fw-bold">${{ "%.2f"|format(product.price) }}</span>
+                    </div>
+                    
+                    <!-- Description -->
+                    <div class="description mb-4">
+                        <p class="lead">{{ product.description }}</p>
+                    </div>
+                    
+                    <!-- Features -->
+                    {% if product.features %}
+                    <div class="features mb-4">
+                        <h6 class="fw-bold mb-3">Key Features:</h6>
+                        <ul class="list-unstyled">
+                            {% for feature in product.features %}
+                            <li class="mb-2">
+                                <i class="fas fa-check text-success me-2"></i>{{ feature }}
+                            </li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                    {% endif %}
+                    
+                    <!-- Size Selection -->
+                    {% if product.sizes %}
+                    <div class="size-selection mb-4">
+                        <h6 class="fw-bold mb-3">Size:</h6>
+                        <div class="btn-group" role="group" aria-label="Size selection">
+                            {% for size in product.sizes %}
+                            <input type="radio" class="btn-check" name="size" id="size{{ size }}" value="{{ size }}">
+                            <label class="btn btn-outline-secondary" for="size{{ size }}">{{ size }}</label>
+                            {% endfor %}
+                        </div>
+                    </div>
+                    {% endif %}
+                    
+                    <!-- Quantity and Add to Cart -->
+                    <div class="purchase-options mb-4">
+                        <div class="row g-3 align-items-end">
+                            <div class="col-auto">
+                                <label for="quantity" class="form-label fw-bold">Quantity:</label>
+                                <div class="input-group" style="width: 120px;">
+                                    <button class="btn btn-outline-secondary" type="button" onclick="decreaseQuantity()">-</button>
+                                    <input type="number" class="form-control text-center" id="quantity" value="1" min="1" max="10">
+                                    <button class="btn btn-outline-secondary" type="button" onclick="increaseQuantity()">+</button>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <button class="btn btn-primary btn-lg w-100">
+                                    <i class="fas fa-shopping-cart me-2"></i>Add to Cart
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Action Buttons -->
+                    <div class="action-buttons d-flex gap-3 mb-4">
+                        <button class="btn btn-outline-secondary">
+                            <i class="fas fa-heart me-2"></i>Add to Wishlist
+                        </button>
+                        <button class="btn btn-outline-secondary">
+                            <i class="fas fa-share-alt me-2"></i>Share
+                        </button>
+                    </div>
+                    
+                    <!-- Product Details Accordion -->
+                    <div class="accordion" id="productAccordion">
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#productDetails">
+                                    Product Details
+                                </button>
+                            </h2>
+                            <div id="productDetails" class="accordion-collapse collapse show" data-bs-parent="#productAccordion">
+                                <div class="accordion-body">
+                                    <p>{{ product.description }}</p>
+                                    {% if product.features %}
+                                    <ul>
+                                        {% for feature in product.features %}
+                                        <li>{{ feature }}</li>
+                                        {% endfor %}
+                                    </ul>
+                                    {% endif %}
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#shippingInfo">
+                                    Shipping & Returns
+                                </button>
+                            </h2>
+                            <div id="shippingInfo" class="accordion-collapse collapse" data-bs-parent="#productAccordion">
+                                <div class="accordion-body">
+                                    <ul>
+                                        <li>Free shipping on orders over $100</li>
+                                        <li>Standard delivery: 3-5 business days</li>
+                                        <li>Express delivery: 1-2 business days</li>
+                                        <li>30-day return policy</li>
+                                        <li>Free returns and exchanges</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#sizeGuide">
+                                    Size Guide
+                                </button>
+                            </h2>
+                            <div id="sizeGuide" class="accordion-collapse collapse" data-bs-parent="#productAccordion">
+                                <div class="accordion-body">
+                                    <p>Please refer to our comprehensive size guide to find your perfect fit.</p>
+                                    <a href="#" class="btn btn-outline-primary btn-sm">View Size Chart</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Related Products -->
+{% if related_products %}
+<section class="py-5 bg-light">
+    <div class="container">
+        <div class="text-center mb-5">
+            <h2 class="display-6 fw-bold">You Might Also Like</h2>
+            <p class="lead text-muted">Discover more items from the same collection</p>
+        </div>
+        
+        <div class="row g-4">
+            {% for related_product in related_products %}
+            <div class="col-lg-3 col-md-6">
+                <div class="card product-card h-100 border-0 shadow-sm">
+                    <div class="product-image-container position-relative overflow-hidden">
+                        <img src="{{ related_product.image }}" 
+                             class="card-img-top product-image" 
+                             alt="{{ related_product.name }}"
+                             loading="lazy">
+                        <div class="product-overlay">
+                            <a href="{{ url_for('product_detail', product_id=related_product.id) }}" 
+                               class="btn btn-light btn-sm">
+                                <i class="fas fa-eye me-2"></i>Quick View
+                            </a>
+                        </div>
+                    </div>
+                    <div class="card-body d-flex flex-column">
+                        <h6 class="card-title">{{ related_product.name }}</h6>
+                        <div class="d-flex justify-content-between align-items-center mt-auto">
+                            <span class="h6 mb-0 text-primary">${{ "%.2f"|format(related_product.price) }}</span>
+                            <a href="{{ url_for('product_detail', product_id=related_product.id) }}" 
+                               class="btn btn-outline-primary btn-sm">
+                                View
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+{% endif %}
+
+<!-- Image Modal -->
+<div class="modal fade" id="imageModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">{{ product.name }}</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body p-0">
+                <img src="{{ product.image }}" alt="{{ product.name }}" class="img-fluid w-100" id="modalImage">
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_scripts %}
+<script>
+function changeMainImage(imageSrc) {
+    document.getElementById('mainProductImage').src = imageSrc;
+    document.getElementById('modalImage').src = imageSrc;
+    
+    // Update active thumbnail
+    document.querySelectorAll('.thumbnail-img').forEach(img => {
+        img.classList.remove('active');
+    });
+    event.target.classList.add('active');
+}
+
+function increaseQuantity() {
+    const input = document.getElementById('quantity');
+    const max = parseInt(input.max);
+    const current = parseInt(input.value);
+    if (current < max) {
+        input.value = current + 1;
+    }
+}
+
+function decreaseQuantity() {
+    const input = document.getElementById('quantity');
+    const min = parseInt(input.min);
+    const current = parseInt(input.value);
+    if (current > min) {
+        input.value = current - 1;
+    }
+}
+</script>
+{% endblock %}

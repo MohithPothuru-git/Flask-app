@@ -1,0 +1,177 @@
+{
+  "categories": [
+    {"id": "clothing", "name": "Clothing", "description": "Stylish clothing for every occasion"},
+    {"id": "accessories", "name": "Accessories", "description": "Complete your look with our accessories"},
+    {"id": "outerwear", "name": "Outerwear", "description": "Stay warm and stylish"}
+  ],
+  "products": [
+    {
+      "id": 1,
+      "name": "Classic White Shirt",
+      "category": "clothing",
+      "price": 89.99,
+      "description": "A timeless white shirt that pairs perfectly with any outfit. Made from premium cotton with a comfortable fit.",
+      "image": "https://pixabay.com/get/gfb8768e96e1a1dbc2e7bdc289b04829a2582594527bbfad8c9c754397b2f568ecb44b059e8c4359f42fb9890a6615ab2be6a351237651d8dce1b8f5c90c8af8d_1280.jpg",
+      "gallery": [
+        "https://pixabay.com/get/gfb8768e96e1a1dbc2e7bdc289b04829a2582594527bbfad8c9c754397b2f568ecb44b059e8c4359f42fb9890a6615ab2be6a351237651d8dce1b8f5c90c8af8d_1280.jpg"
+      ],
+      "features": ["100% Cotton", "Machine Washable", "Classic Fit", "Professional Look"],
+      "sizes": ["XS", "S", "M", "L", "XL"],
+      "featured": true
+    },
+    {
+      "id": 2,
+      "name": "Designer Casual Wear",
+      "category": "clothing",
+      "price": 129.99,
+      "description": "Comfortable casual wear with a modern design. Perfect for everyday style and weekend outings.",
+      "image": "https://pixabay.com/get/g2f0de2713a27101d4f5a54bf018726da7977a2a3ff0957c9d43fd7ef1bc209bbaa1bb9bea73595d3c84fd6c696efaaa70f3e0ee6d5f7499857eb79a1215ed83b_1280.jpg",
+      "gallery": [
+        "https://pixabay.com/get/g2f0de2713a27101d4f5a54bf018726da7977a2a3ff0957c9d43fd7ef1bc209bbaa1bb9bea73595d3c84fd6c696efaaa70f3e0ee6d5f7499857eb79a1215ed83b_1280.jpg"
+      ],
+      "features": ["Casual Style", "Comfortable Fit", "Premium Fabric", "Versatile Design"],
+      "sizes": ["S", "M", "L", "XL"],
+      "featured": true
+    },
+    {
+      "id": 3,
+      "name": "Elegant Fashion Collection",
+      "category": "clothing",
+      "price": 199.99,
+      "description": "Sophisticated fashion pieces that make a statement. Designed for the modern professional.",
+      "image": "https://pixabay.com/get/g78eb4eb61fe9259245a6ce3016e90d00dbdbb76ecced584ec3ea758a3fa058c7d9b7296e3d90c9d73a6fadab31737fdcae720ee4487ecdc2ce1ef4ab26c72879_1280.jpg",
+      "gallery": [
+        "https://pixabay.com/get/g78eb4eb61fe9259245a6ce3016e90d00dbdbb76ecced584ec3ea758a3fa058c7d9b7296e3d90c9d73a6fadab31737fdcae720ee4487ecdc2ce1ef4ab26c72879_1280.jpg"
+      ],
+      "features": ["Premium Quality", "Elegant Design", "Professional Style", "Comfortable Fit"],
+      "sizes": ["XS", "S", "M", "L"],
+      "featured": true
+    },
+    {
+      "id": 4,
+      "name": "Stylish Denim Collection",
+      "category": "clothing",
+      "price": 79.99,
+      "description": "Classic denim with a modern twist. Comfortable and durable for everyday wear.",
+      "image": "https://pixabay.com/get/ge809d6aed249893636cd09d47aa5bcdf01e38f1162c4aa2e8c3b8adb3d02afdcc453b98f038a684004350f3d210c87f645fd9239af6a0547b10c99496a37a04b_1280.jpg",
+      "gallery": [
+        "https://pixabay.com/get/ge809d6aed249893636cd09d47aa5bcdf01e38f1162c4aa2e8c3b8adb3d02afdcc453b98f038a684004350f3d210c87f645fd9239af6a0547b10c99496a37a04b_1280.jpg"
+      ],
+      "features": ["Premium Denim", "Classic Cut", "Durable", "Versatile"],
+      "sizes": ["28", "30", "32", "34", "36"],
+      "featured": false
+    },
+    {
+      "id": 5,
+      "name": "Summer Fashion Line",
+      "category": "clothing",
+      "price": 69.99,
+      "description": "Light and breezy summer clothing perfect for warm weather. Comfortable and stylish.",
+      "image": "https://pixabay.com/get/ge1c0bb6fc3e19da33dc858ff7da73eb39447ea9bbcedd701ea83b3faf113b9488a808b2143bdf3449f104f3fd20c87ba884a06a21d489de0eb7c93a30237d441_1280.jpg",
+      "gallery": [
+        "https://pixabay.com/get/ge1c0bb6fc3e19da33dc858ff7da73eb39447ea9bbcedd701ea83b3faf113b9488a808b2143bdf3449f104f3fd20c87ba884a06a21d489de0eb7c93a30237d441_1280.jpg"
+      ],
+      "features": ["Lightweight", "Breathable", "Summer Ready", "Comfortable"],
+      "sizes": ["XS", "S", "M", "L", "XL"],
+      "featured": false
+    },
+    {
+      "id": 6,
+      "name": "Urban Streetwear",
+      "category": "clothing",
+      "price": 95.99,
+      "description": "Contemporary streetwear with urban appeal. Perfect for casual outings and city life.",
+      "image": "https://pixabay.com/get/g98118b33ce5eaee57c76aa97afcc54debb3952d9444cc6909881f8020e32ec9afc551b6299a14a0c3435172194239af941a430394dd5efd7c60dbb74a31eee1b_1280.jpg",
+      "gallery": [
+        "https://pixabay.com/get/g98118b33ce5eaee57c76aa97afcc54debb3952d9444cc6909881f8020e32ec9afc551b6299a14a0c3435172194239af941a430394dd5efd7c60dbb74a31eee1b_1280.jpg"
+      ],
+      "features": ["Urban Style", "Contemporary Design", "Comfortable", "Trendy"],
+      "sizes": ["S", "M", "L", "XL"],
+      "featured": true
+    },
+    {
+      "id": 7,
+      "name": "Professional Wardrobe",
+      "category": "clothing",
+      "price": 159.99,
+      "description": "Professional attire for the modern workplace. Sophisticated and comfortable for all-day wear.",
+      "image": "https://pixabay.com/get/g67a594060283c6bc1130cbe9bf5dfc88bd5ac119d654e26226b8f579d4b9f560ec9aecec5a4d02cb696892778fa0422bd38b1c6d5ced41cdeb8d15aff68d5751_1280.jpg",
+      "gallery": [
+        "https://pixabay.com/get/g67a594060283c6bc1130cbe9bf5dfc88bd5ac119d654e26226b8f579d4b9f560ec9aecec5a4d02cb696892778fa0422bd38b1c6d5ced41cdeb8d15aff68d5751_1280.jpg"
+      ],
+      "features": ["Professional", "High Quality", "Comfortable", "Sophisticated"],
+      "sizes": ["XS", "S", "M", "L", "XL"],
+      "featured": false
+    },
+    {
+      "id": 8,
+      "name": "Casual Weekend Wear",
+      "category": "clothing",
+      "price": 49.99,
+      "description": "Relaxed and comfortable clothing for your downtime. Perfect for weekends and leisure activities.",
+      "image": "https://pixabay.com/get/gb39fd7f69f5410e6f834a770ce53b13516a51ee4b4ba15fc524a16a5acfd347ba429599c0a8412e1bf4d18bb54204a98a8c0a3c73e940e361ca646e679304428_1280.jpg",
+      "gallery": [
+        "https://pixabay.com/get/gb39fd7f69f5410e6f834a770ce53b13516a51ee4b4ba15fc524a16a5acfd347ba429599c0a8412e1bf4d18bb54204a98a8c0a3c73e940e361ca646e679304428_1280.jpg"
+      ],
+      "features": ["Casual", "Comfortable", "Relaxed Fit", "Weekend Ready"],
+      "sizes": ["S", "M", "L", "XL"],
+      "featured": true
+    },
+    {
+      "id": 9,
+      "name": "Designer Handbag",
+      "category": "accessories",
+      "price": 249.99,
+      "description": "Elegant designer handbag crafted from premium materials. Perfect for any occasion.",
+      "image": "https://pixabay.com/get/gbe1fe54afa58cc0c33ca267636fa65fc005aa9530286f9df40fc20a0e2283d8cf30233494e8e445556882a3fcdda5292711eaba746d63dc560d9a643e94ccf29_1280.jpg",
+      "gallery": [
+        "https://pixabay.com/get/gbe1fe54afa58cc0c33ca267636fa65fc005aa9530286f9df40fc20a0e2283d8cf30233494e8e445556882a3fcdda5292711eaba746d63dc560d9a643e94ccf29_1280.jpg"
+      ],
+      "features": ["Premium Leather", "Designer Style", "Spacious", "Elegant"],
+      "sizes": ["One Size"],
+      "featured": true
+    },
+    {
+      "id": 10,
+      "name": "Luxury Watch",
+      "category": "accessories",
+      "price": 399.99,
+      "description": "Sophisticated timepiece with precision craftsmanship. A perfect blend of style and functionality.",
+      "image": "https://pixabay.com/get/gb5c1d89fea6698b0967ad1719a92ef7fe38083927cf8cd0648aa96727ea7612e5ec59d05142ee737777a3f4a13c5994769899256d82c67a46667b42cdbec220b_1280.jpg",
+      "gallery": [
+        "https://pixabay.com/get/gb5c1d89fea6698b0967ad1719a92ef7fe38083927cf8cd0648aa96727ea7612e5ec59d05142ee737777a3f4a13c5994769899256d82c67a46667b42cdbec220b_1280.jpg"
+      ],
+      "features": ["Swiss Movement", "Water Resistant", "Premium Materials", "Elegant Design"],
+      "sizes": ["One Size"],
+      "featured": false
+    },
+    {
+      "id": 11,
+      "name": "Statement Jewelry",
+      "category": "accessories",
+      "price": 89.99,
+      "description": "Bold and beautiful jewelry pieces to complement your style. Made with attention to detail.",
+      "image": "https://pixabay.com/get/g0b1e28833d374abfb8e01a3de2265998ab3b32d83d1a07212db145ad97da29cc99a9fcab5ae24670121af33d2ea5ee5092d5a51a074b1f3b0bbf15dec8018492_1280.jpg",
+      "gallery": [
+        "https://pixabay.com/get/g0b1e28833d374abfb8e01a3de2265998ab3b32d83d1a07212db145ad97da29cc99a9fcab5ae24670121af33d2ea5ee5092d5a51a074b1f3b0bbf15dec8018492_1280.jpg"
+      ],
+      "features": ["Statement Piece", "High Quality", "Unique Design", "Versatile"],
+      "sizes": ["One Size"],
+      "featured": false
+    },
+    {
+      "id": 12,
+      "name": "Designer Sunglasses",
+      "category": "accessories",
+      "price": 159.99,
+      "description": "Stylish sunglasses with UV protection. Perfect for sunny days and outdoor activities.",
+      "image": "https://pixabay.com/get/g3dae8f121a7ed73a879cf80aea5445e1f65fe648a1c8d3b27539d6dcf539afecdfd3f2459eba03e9edd5ad50c144fcec7c9349f709025d40cee6f374cd3728b9_1280.jpg",
+      "gallery": [
+        "https://pixabay.com/get/g3dae8f121a7ed73a879cf80aea5445e1f65fe648a1c8d3b27539d6dcf539afecdfd3f2459eba03e9edd5ad50c144fcec7c9349f709025d40cee6f374cd3728b9_1280.jpg"
+      ],
+      "features": ["UV Protection", "Designer Frame", "Comfortable", "Stylish"],
+      "sizes": ["One Size"],
+      "featured": true
+    }
+  ]
+}

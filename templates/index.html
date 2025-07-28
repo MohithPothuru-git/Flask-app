@@ -1,0 +1,254 @@
+{% extends "base.html" %}
+
+{% block title %}Elegant Fashion - Premium Clothing Collection{% endblock %}
+
+{% block content %}
+<!-- Hero Section -->
+<section class="hero-section position-relative overflow-hidden bg-gradient">
+    <div class="hero-overlay"></div>
+    <div class="container py-5">
+        <div class="row align-items-center min-vh-80">
+            <div class="col-lg-7">
+                <div class="hero-content text-center text-lg-start">
+                    <div class="hero-badge mb-3">
+                        <span class="badge bg-primary px-3 py-2 fs-6">New Collection 2025</span>
+                    </div>
+                    <h1 class="display-3 fw-bold mb-4 hero-title">
+                        Redefine Your
+                        <span class="text-gradient">Fashion Story</span>
+                    </h1>
+                    <p class="lead mb-4 text-light hero-subtitle">
+                        Step into a world of sophistication where every piece tells a story of elegance, 
+                        craftsmanship, and timeless beauty. Your journey to exceptional style starts here.
+                    </p>
+                    <div class="hero-stats row text-center mb-4">
+                        <div class="col-4">
+                            <h4 class="text-primary mb-1">500+</h4>
+                            <small class="text-light">Premium Items</small>
+                        </div>
+                        <div class="col-4">
+                            <h4 class="text-primary mb-1">15K+</h4>
+                            <small class="text-light">Happy Customers</small>
+                        </div>
+                        <div class="col-4">
+                            <h4 class="text-primary mb-1">99%</h4>
+                            <small class="text-light">Satisfaction</small>
+                        </div>
+                    </div>
+                    <div class="d-flex gap-3 flex-wrap justify-content-center justify-content-lg-start">
+                        <a href="{{ url_for('products') }}" class="btn btn-lg btn-primary px-4 py-3 hero-btn">
+                            <i class="fas fa-shopping-bag me-2"></i>Explore Collection
+                        </a>
+                        <a href="{{ url_for('about') }}" class="btn btn-lg btn-outline-light px-4 py-3 hero-btn">
+                            <i class="fas fa-play me-2"></i>Our Story
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-5">
+                <div class="hero-image-wrapper position-relative">
+                    <div class="hero-image-main">
+                        <img src="https://pixabay.com/get/g069de925d44a9cce672a2b1c78737392d61c3d2598b3d3353fc20a3a295542483fef983492cd3d8738d9aed580d1204cac7985bdbd1131f6b30c31d584d44bc4_1280.jpg" 
+                             alt="Fashion Model" 
+                             class="img-fluid hero-main-img">
+                    </div>
+                    <div class="hero-floating-card">
+                        <div class="card border-0 shadow-lg">
+                            <div class="card-body p-3">
+                                <div class="d-flex align-items-center">
+                                    <div class="me-3">
+                                        <i class="fas fa-star text-warning"></i>
+                                        <i class="fas fa-star text-warning"></i>
+                                        <i class="fas fa-star text-warning"></i>
+                                        <i class="fas fa-star text-warning"></i>
+                                        <i class="fas fa-star text-warning"></i>
+                                    </div>
+                                    <div>
+                                        <small class="text-muted">5.0 Rating</small>
+                                        <div class="fw-bold">Premium Quality</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Featured Products Section -->
+<section class="py-5 featured-section">
+    <div class="container">
+        <div class="text-center mb-5">
+            <div class="section-badge mb-3">
+                <span class="badge bg-outline-primary px-3 py-2">Handpicked for You</span>
+            </div>
+            <h2 class="display-5 fw-bold mb-3 section-title">
+                Our <span class="text-primary">Signature</span> Collection
+            </h2>
+            <p class="lead text-muted">Curated pieces that define modern elegance and timeless sophistication</p>
+        </div>
+        
+        <div class="row g-4">
+            {% for product in featured_products %}
+            <div class="col-lg-4 col-md-6">
+                <div class="card product-card h-100 border-0 shadow-sm">
+                    <div class="product-image-container position-relative overflow-hidden">
+                        <img src="{{ product.image }}" 
+                             class="card-img-top product-image" 
+                             alt="{{ product.name }}"
+                             loading="lazy">
+                        <div class="product-overlay">
+                            <a href="{{ url_for('product_detail', product_id=product.id) }}" 
+                               class="btn btn-light btn-sm">
+                                <i class="fas fa-eye me-2"></i>Quick View
+                            </a>
+                        </div>
+                    </div>
+                    <div class="card-body d-flex flex-column">
+                        <h5 class="card-title">{{ product.name }}</h5>
+                        <p class="card-text text-muted flex-grow-1">{{ product.description[:100] }}...</p>
+                        <div class="d-flex justify-content-between align-items-center mt-auto">
+                            <span class="h5 mb-0 text-primary">${{ "%.2f"|format(product.price) }}</span>
+                            <a href="{{ url_for('product_detail', product_id=product.id) }}" 
+                               class="btn btn-outline-primary btn-sm">
+                                View Details
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        
+        <div class="text-center mt-5">
+            <a href="{{ url_for('products') }}" class="btn btn-lg btn-primary">
+                <i class="fas fa-th-large me-2"></i>View All Products
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- Categories Section -->
+<section class="py-5 categories-section">
+    <div class="container">
+        <div class="text-center mb-5">
+            <div class="section-badge mb-3">
+                <span class="badge bg-outline-secondary px-3 py-2">Browse Collections</span>
+            </div>
+            <h2 class="display-5 fw-bold mb-3">
+                Discover Your <span class="text-primary">Perfect Style</span>
+            </h2>
+            <p class="lead text-muted">From casual essentials to statement pieces - find what speaks to you</p>
+        </div>
+        
+        <div class="row g-4">
+            <div class="col-lg-4 col-md-6">
+                <div class="category-card-modern position-relative overflow-hidden rounded-4 shadow-lg h-100">
+                    <div class="category-bg" style="background-image: url('https://pixabay.com/get/g7db04ac7d0d659b3fb82ae13d859ccf8b468beb8afb61208e88f9e4be2598c7da4a71f17ce36964c39c5be1af1f2a8991b9d7c11a594b64e489ccdd5cc4d31b1_1280.jpg');"></div>
+                    <div class="category-overlay"></div>
+                    <div class="category-content text-center text-white p-5">
+                        <div class="category-icon-modern mb-3">
+                            <i class="fas fa-tshirt fa-3x"></i>
+                        </div>
+                        <h4 class="fw-bold mb-3">Clothing</h4>
+                        <p class="mb-4">Timeless pieces crafted for everyday elegance and comfort</p>
+                        <a href="{{ url_for('products', category='clothing') }}" class="btn btn-light btn-lg">
+                            Explore Collection
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-lg-4 col-md-6">
+                <div class="category-card-modern position-relative overflow-hidden rounded-4 shadow-lg h-100">
+                    <div class="category-bg" style="background-image: url('https://pixabay.com/get/gbe1fe54afa58cc0c33ca267636fa65fc005aa9530286f9df40fc20a0e2283d8cf30233494e8e445556882a3fcdda5292711eaba746d63dc560d9a643e94ccf29_1280.jpg');"></div>
+                    <div class="category-overlay"></div>
+                    <div class="category-content text-center text-white p-5">
+                        <div class="category-icon-modern mb-3">
+                            <i class="fas fa-gem fa-3x"></i>
+                        </div>
+                        <h4 class="fw-bold mb-3">Accessories</h4>
+                        <p class="mb-4">Complete your look with our exquisite accessories collection</p>
+                        <a href="{{ url_for('products', category='accessories') }}" class="btn btn-light btn-lg">
+                            Explore Collection
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-lg-4 col-md-6">
+                <div class="category-card-modern position-relative overflow-hidden rounded-4 shadow-lg h-100">
+                    <div class="category-bg" style="background-image: url('https://pixabay.com/get/g67a594060283c6bc1130cbe9bf5dfc88bd5ac119d654e26226b8f579d4b9f560ec9aecec5a4d02cb696892778fa0422bd38b1c6d5ced41cdeb8d15aff68d5751_1280.jpg');"></div>
+                    <div class="category-overlay"></div>
+                    <div class="category-content text-center text-white p-5">
+                        <div class="category-icon-modern mb-3">
+                            <i class="fas fa-jacket fa-3x"></i>
+                        </div>
+                        <h4 class="fw-bold mb-3">Outerwear</h4>
+                        <p class="mb-4">Stay stylish in any weather with our premium outerwear</p>
+                        <a href="{{ url_for('products', category='outerwear') }}" class="btn btn-light btn-lg">
+                            Explore Collection
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Testimonials Section -->
+<section class="py-5">
+    <div class="container">
+        <div class="text-center mb-5">
+            <h2 class="display-5 fw-bold mb-3">What Our Customers Say</h2>
+            <p class="lead text-muted">Hear from our satisfied customers about their experience</p>
+        </div>
+        
+        <div class="row g-4">
+            <div class="col-lg-4">
+                <div class="testimonial-card text-center p-4 h-100">
+                    <img src="https://pixabay.com/get/gaa721a8e0210db33fb113e7054da47d2230f996a07fbb513e62b8a0746f0a8b8ad0b054cf710ba9365afd3d60a7c2b48d21bddc34c56feae079b9e1311c08fde_1280.jpg" 
+                         alt="Customer" 
+                         class="rounded-circle mb-3" 
+                         width="80" height="80"
+                         style="object-fit: cover;">
+                    <blockquote class="mb-3">
+                        "The quality and style of the clothing exceeded my expectations. Every piece feels premium and looks amazing."
+                    </blockquote>
+                    <cite class="text-muted">- Sarah Johnson</cite>
+                </div>
+            </div>
+            
+            <div class="col-lg-4">
+                <div class="testimonial-card text-center p-4 h-100">
+                    <img src="https://pixabay.com/get/g18905c78e6d8cad05462721f98719a39a41373ea5c5a7a568b295709b1cd8ff1b060a39ab3c24997aee6eea0acbfb416c38d2e63c95e0b843bcd9666b74fcd35_1280.jpg" 
+                         alt="Customer" 
+                         class="rounded-circle mb-3" 
+                         width="80" height="80"
+                         style="object-fit: cover;">
+                    <blockquote class="mb-3">
+                        "I love the elegant designs and attention to detail. The perfect blend of comfort and style."
+                    </blockquote>
+                    <cite class="text-muted">- Michael Chen</cite>
+                </div>
+            </div>
+            
+            <div class="col-lg-4">
+                <div class="testimonial-card text-center p-4 h-100">
+                    <img src="https://pixabay.com/get/gd85ba7ac024fc70b32bc507c3d327f4f96c6ea19d78d8196fb4612239281aa4bd0eb502f45a59aba7066d352b8829ddf439f054ff2ba14c43db13dd0046e4a50_1280.jpg" 
+                         alt="Customer" 
+                         class="rounded-circle mb-3" 
+                         width="80" height="80"
+                         style="object-fit: cover;">
+                    <blockquote class="mb-3">
+                        "Outstanding customer service and beautiful fashion pieces. Highly recommend this brand!"
+                    </blockquote>
+                    <cite class="text-muted">- Emma Davis</cite>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
