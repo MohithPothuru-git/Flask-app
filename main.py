@@ -1,10 +1,13 @@
 import os
-from flask import Flask
+from flask import Flask,render_template, request, flash, redirect, url_for
 from flask_sqlalchemy import SQLAlchemy
+import logging
 from sqlalchemy.orm import DeclarativeBase
+
+logging.basicConfig(level=logging.DEBUG)
 class Base(DeclarativeBase):
     pass
-db = SQLAlchemy(model_class=Base)
+
+
 # create the app
 app = Flask(__name__)
-# setup a secret key, required by sessions

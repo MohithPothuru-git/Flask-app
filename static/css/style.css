@@ -2,19 +2,21 @@
 
 /* Color Variables */
 :root {
-    --primary-pink: #f8d7da;
-    --secondary-pink: #f5c2c7;
-    --accent-pink: #ea868f;
-    --light-brown: #d4a574;
-    --medium-brown: #b8956a;
-    --dark-brown: #8b6f47;
-    --cream: #faf8f5;
-    --soft-white: #ffffff;
+    --primary-bg: #1a1a1a;
+    --secondary-bg: #262626;
+    --card-bg: #2f2f2f;
+    --primary-text: #f0f0f0;
+    --muted-text: #b0a99f;
+    --primary-pink: #ea868f;
+    --accent-pink: #f5c2c7;
+    --dark-brown: #b8956a;
+    --medium-brown: #d4a574;
+    --border-color: #3d3d3d;
 }
 
 /* Hero section */
 .hero-section.bg-gradient {
-    background: linear-gradient(135deg, var(--primary-pink) 0%, var(--light-brown) 50%, var(--secondary-pink) 100%);
+    background: linear-gradient(135deg, var(--card-bg) 0%, var(--light-brown) 50%, var(--secondary-pink) 100%);
     position: relative;
 }
 
@@ -514,3 +516,5 @@ body {
 ::-webkit-scrollbar-thumb:hover {
     background: var(--bs-primary);
 }
+
+
