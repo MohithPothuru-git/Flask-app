@@ -208,3 +208,6 @@ if __name__ == '__main__':
             print("✅ Added test product.")
 
     app.run(host='0.0.0.0', port=5000, debug=True)
+
+
+print("working")
